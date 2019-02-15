@@ -1,0 +1,27 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build main",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-std=c++14",
+                "-g",
+                "-o",
+                "game.exe",
+                "main.cpp",
+                "Player.cpp",
+                "GameObject.cpp",
+                "Laser.cpp",
+                "Asteroid.cpp",
+                "GoManager.cpp",
+                "Enemy.cpp"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
