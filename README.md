@@ -1,4 +1,4 @@
-# OOP-Term-Project
+# OOPTP
 
 An Asteroids-like game project using rlutil for _CENG241: Object Oriented Programming_ course.
 
