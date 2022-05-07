@@ -8,29 +8,24 @@
 using namespace std;
 using namespace rlutil;
 
-Laser::Laser() : GameObject()
-{
+Laser::Laser() : GameObject() {
     sprite = "-";
     visible = false;
     direction = 1;
 }
 
-void Laser::draw()
-{
+void Laser::draw() {
     // Draw the laser to screen
-    if (visible)
-    {
+    if (visible) {
         locate(getPX(), getPY());
         cout << " ";
 
         // Change the color
-        if (this->direction == -1)
-        {
+        if (this->direction == -1) {
             // Enemy laser
             setColor(YELLOW);
         }
-        else
-        {
+        else {
             // Player laser
             setColor(LIGHTCYAN);
         }
@@ -42,24 +37,20 @@ void Laser::draw()
     }
 }
 
-void Laser::update()
-{
-    if (visible)
-    {
+void Laser::update() {
+    if (visible) {
         // update the location
         this->setX(getX() + (direction));
         this->setY(getY());
     }
 
-    if (getX() >= 80 || getX() <= 1)
-    {
+    if (getX() >= 80 || getX() <= 1) {
         // out of screen bounds
         destroy();
     }
 }
 
-void Laser::destroy()
-{
+void Laser::destroy() {
     visible = false;
 
     // Clear the after image.

@@ -8,16 +8,15 @@
 #include "GameObject.h"
 #include "Laser.h"
 
-class Player : public GameObject
-{
+class Player : public GameObject {
 public:
-  Player();
-  int health;
-  void draw();
-  void update();
-  void destroy();
+    Player();
+    int health;
+    void draw();
+    void update();
+    void destroy();
 
 private:
-  void fire();
-  void death();
+    void fire();
+    void death();
 };

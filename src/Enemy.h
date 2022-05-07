@@ -5,15 +5,15 @@
 
 #include "GameObject.h"
 
-class Enemy : public GameObject
-{
+class Enemy : public GameObject {
 public:
-  Enemy();
-  Enemy(int, int);
-  int health;
-  void update(int);
-  void draw();
-  void destroy();
-  void fire();
-  void death();
+    int health;
+    
+    Enemy();
+    Enemy(int, int);
+    void update(int);
+    void draw();
+    void destroy();
+    void fire();
+    void death();
 };

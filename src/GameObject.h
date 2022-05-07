@@ -5,8 +5,7 @@
 
 #include <string>
 
-class GameObject
-{
+class GameObject {
 public:
   virtual void draw() = 0;
   GameObject();

@@ -5,13 +5,12 @@
 
 #include "GameObject.h"
 
-class Laser : public GameObject
-{
+class Laser : public GameObject {
 public:
-  Laser();
-  void move();
-  void update();
-  void draw();
-  int direction;
-  void destroy();
+    Laser();
+    void move();
+    void update();
+    void draw();
+    int direction;
+    void destroy();
 };

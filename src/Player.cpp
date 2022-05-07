@@ -9,8 +9,7 @@
 
 using namespace rlutil;
 
-Player::Player()
-{
+Player::Player() {
     visible = true;
     sprite = "#+";
     size = 2;
@@ -21,8 +20,7 @@ Player::Player()
     setY(10);
 }
 
-void Player::draw()
-{
+void Player::draw() {
     // Delete the after image.
     locate(getPX(), getPY());
     std::cout << "  ";
@@ -31,8 +29,7 @@ void Player::draw()
     setColor(LIGHTBLUE);
 
     // If the player is dead, draw the ship in red.
-    if (health == 0)
-    {
+    if (health == 0) {
         setColor(RED);
     }
 
@@ -44,71 +41,59 @@ void Player::draw()
     setColor(GREY);
 }
 
-void Player::update()
-{
+void Player::update() {
     int k;
 
-    if (health <= 0)
-    {
+    if (health <= 0) {
         death();
     }
 
     // Check for player input.
-    if (kbhit())
-    {
+    if (kbhit()) {
         k = getkey();
 
-        if (k == KEY_UP && getY() > 1)
-        {
+        if (k == KEY_UP && getY() > 1) {
             // Move up.
             setY(getY() - 1);
             setX(getX());
         }
-        else if (k == KEY_DOWN && getY() < 25)
-        {
+        else if (k == KEY_DOWN && getY() < 25) {
             // Move down.
             setY(getY() + 1);
             setX(getX());
         }
-        else if (k == KEY_LEFT && getX() > 1)
-        {
+        else if (k == KEY_LEFT && getX() > 1) {
             // Move left.
             setX(getX() - 1);
             setY(getY());
         }
-        else if (k == KEY_RIGHT && getX() < 79)
-        {
+        else if (k == KEY_RIGHT && getX() < 79) {
             // Move right.
             setX(getX() + 1);
             setY(getY());
         }
-        else if (k == KEY_SPACE)
-        {
+        else if (k == KEY_SPACE) {
             // Fire, spawn laser.
             fire();
         }
     }
 }
 
-void Player::fire()
-{
+void Player::fire() {
     // Spawn a laser that goes right.
     GoManager::spawnLaser(this->getX() + size, this->getY(), 1);
 }
 
-void Player::destroy()
-{
+void Player::destroy() {
     // This gets called when player collides with another game object. Health goes down.
     this->health -= 1;
 
-    if (health <= 0)
-    {
+    if (health <= 0) {
         death();
     }
 }
 
-void Player::death()
-{
+void Player::death() {
     // When player dies, game ends.
     GoManager::inGame = false;
 }

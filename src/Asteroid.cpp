@@ -9,38 +9,32 @@
 using namespace std;
 using namespace rlutil;
 
-Asteroid::Asteroid()
-{
+Asteroid::Asteroid() {
     sprite = "0";
     health = 1;
 }
 
-Asteroid::Asteroid(int nx, int ny)
-{
+Asteroid::Asteroid(int nx, int ny) {
     sprite = "0";
     health = 1;
     setX(nx);
     setY(ny);
 }
 
-void Asteroid::update()
-{
+void Asteroid::update() {
     // Updates the state of this asteroid.
-    if (health > 0)
-    {
-        if (getX() == 1)
-        {
+    if (health > 0) {
+        if (getX() == 1) {
             destroy();
         }
         setX(getX() - 1);
         setY(getY());
     }
 }
-void Asteroid::draw()
-{
+
+void Asteroid::draw() {
     // Draws the asteroid to screen if health > 0
-    if (health)
-    {
+    if (health) {
         // Asteroids are red.
         setColor(RED);
 
@@ -57,8 +51,7 @@ void Asteroid::draw()
     }
 }
 
-void Asteroid::destroy()
-{
+void Asteroid::destroy() {
     // Destroy the asteroid.
     health = 0;
     visible = false;

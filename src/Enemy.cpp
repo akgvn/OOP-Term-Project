@@ -9,26 +9,21 @@
 using namespace std;
 using namespace rlutil;
 
-Enemy::Enemy()
-{
+Enemy::Enemy() {
     sprite = "<?";
     health = 2;
 }
 
-Enemy::Enemy(int nx, int ny)
-{
+Enemy::Enemy(int nx, int ny) {
     sprite = "<?";
     health = 2;
     setX(nx);
     setY(ny);
 }
 
-void Enemy::update(int frame)
-{
-    if (health > 0)
-    {
-        if (getX() == 1)
-        {
+void Enemy::update(int frame) {
+    if (health > 0) {
+        if (getX() == 1) {
             destroy();
             return;
         }
@@ -42,11 +37,9 @@ void Enemy::update(int frame)
     else
         destroy();
 }
-void Enemy::draw()
-{
+void Enemy::draw() {
     // If enemy has health, draw it.
-    if (health)
-    {
+    if (health) {
         setColor(LIGHTMAGENTA);
 
         // Clear the after image.
@@ -62,20 +55,17 @@ void Enemy::draw()
     }
 }
 
-void Enemy::destroy()
-{
+void Enemy::destroy() {
     this->health -= 1;
     if (health <= 0)
         death();
 }
 
-void Enemy::fire()
-{
+void Enemy::fire() {
     GoManager::spawnLaser(this->getX() - (size + 1), this->getY(), -1);
 }
 
-void Enemy::death()
-{
+void Enemy::death() {
     health = 0;
     visible = false;
 

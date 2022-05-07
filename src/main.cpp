@@ -19,27 +19,23 @@ using namespace std;
 using namespace std::chrono;
 using namespace rlutil;
 
-void drawBounds()
-{
+void drawBounds() {
     // Drawing screen boundaries
 
     int i;
     setBackgroundColor(GREY);
-    for (i = 1; i < 27; i++)
-    {
+    for (i = 1; i < 27; i++) {
         locate(81, i);
         cout << "|";
     }
-    for (i = 1; i < 81; i++)
-    {
+    for (i = 1; i < 81; i++) {
         locate(i, 26);
         cout << "-";
     }
     setBackgroundColor(BLACK);
 }
 
-int main()
-{
+int main() {
     srand(time(NULL));
     hidecursor();
     int frame = 0, i;
@@ -63,14 +59,12 @@ int main()
 
     time_point<system_clock> timer = system_clock::now(); // to count Frames
 
-    while (GoManager::inGame)
-    {
+    while (GoManager::inGame) {
         timer += milliseconds(100); // Draw the screen every 100 ms
 
         GoManager::updateState(frame); // Update the game state
 
-        while (system_clock::now() < timer)
-        {
+        while (system_clock::now() < timer) {
             continue;
         } // Wait until the time for next frame.
 
